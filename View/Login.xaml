@@ -10,18 +10,97 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
-        WindowStartupLocation="CenterScreen"
-        MouseDown="Window_MouseDown">
-
-
-    <Grid RenderTransformOrigin="0.49,0.517" Height="474" VerticalAlignment="Top" Margin="0,26,0,0">
+        WindowStartupLocation="CenterScreen">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="1.5"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
+        
+<!--fix pa nko mga buttons-->
+        <Button x:Name="loginmin"
+                Background="transparent"
+                BorderThickness="0"
+                Foreground="Black"
+                FontSize="16"
+                FontFamily="Montserrat"
+                Content="-"
+                Cursor="Hand"
+                Grid.Column="1"
+                Click="loginmin_Click">
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="black"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="18" Height="18"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            
+        </Button>
+        
+        
+
+        <Border CornerRadius="10,0,0,10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#460000" Offset="0"/>
+                    <GradientStop Color="#dc3545" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <StackPanel Width="230"
+                        Height="240">
+                <Image Source="/Image/um.png"/>
+
+            </StackPanel>
+        </Border> 
+
+        <Border Background="#ffffff" Grid.Column="1" CornerRadius="0,10,10,0">
+            <StackPanel>
+                <TextBlock Text="Username:" Style="{StaticResource normalText}" Margin="25,180,0,0"
+                       HorizontalAlignment="Left"/>
+
+                <TextBox x:Name="username"
+                         FontSize="16"
+                         FontFamily="Montserrat"
+                         Margin="25,0,50,0"
+                         BorderThickness="2,2,2,2"
+                         Background="Transparent"   
+                         Foreground="black"
+                         CaretBrush="LightGray"
+                         BorderBrush="#f5d219"
+                         Height="28"
+                         VerticalContentAlignment="Center"
+                         Padding="10"/>
 
 
+                <TextBlock Text="Password:" Style="{StaticResource normalText}" Margin="25,30,0,0"
+                           HorizontalAlignment="Left"/>
 
+                <TextBox x:Name="password"
+                         FontSize="16"
+                         FontFamily="Monsterrat"
+                         Margin="25,0,50,0"
+                         BorderThickness="2,2,2,2"
+                         Background="Transparent"
+                         Foreground="Black"
+                         CaretBrush="Black"/>
+            </StackPanel>
+        </Border>
     </Grid>
 
 

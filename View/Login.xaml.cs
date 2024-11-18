@@ -23,5 +23,10 @@ namespace prototype.View
         {
             InitializeComponent();
         }
+
+        private void loginmin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
