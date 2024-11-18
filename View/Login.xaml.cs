@@ -26,7 +26,11 @@ namespace prototype.View
 
         private void loginmin_Click(object sender, RoutedEventArgs e)
         {
+            var dashboard = new MainWindow();
 
+            dashboard.Show();
+
+            this.Close();
         }
     }
 }
