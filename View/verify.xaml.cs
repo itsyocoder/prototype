@@ -43,6 +43,7 @@ namespace prototype.View
 
         private void btnverify_click(object sender, RoutedEventArgs e)
         {
+
             var loginWindow = new Login();
 
             loginWindow.Show();
@@ -52,6 +53,7 @@ namespace prototype.View
 
         private void verifyuser_TextChanged(object sender, TextChangedEventArgs e)
         {
+
 
         }
     }
