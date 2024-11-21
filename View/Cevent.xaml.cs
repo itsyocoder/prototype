@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace prototype.View
 {
     /// <summary>
-    /// Interaction logic for eventV.xaml
+    /// Interaction logic for Cevent.xaml
     /// </summary>
-    public partial class eventV : UserControl
+    public partial class Cevent : UserControl
     {
-        public eventV()
+        public Cevent()
         {
             InitializeComponent();
         }

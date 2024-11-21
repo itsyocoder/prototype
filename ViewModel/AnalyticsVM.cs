@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace prototype.ViewModel
 {
-    class Events
+    public class AnalyticsVM
     {
     }
 }

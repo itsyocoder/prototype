@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace prototype.View
 {
     /// <summary>
-    /// Interaction logic for analyticsV.xaml
+    /// Interaction logic for Analytics.xaml
     /// </summary>
-    public partial class analyticsV : UserControl
+    public partial class Analytics : UserControl
     {
-        public analyticsV()
+        public Analytics()
         {
             InitializeComponent();
         }

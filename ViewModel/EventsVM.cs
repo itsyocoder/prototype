@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace prototype.ViewModel
 {
-    class createevent
+    public class EventsVM
     {
     }
 }
