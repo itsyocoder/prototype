@@ -10,6 +10,8 @@ namespace prototype.Model
     {
         public int TotalStudent { get; set; }
 
+        public int Department { get; set; }
+
         public int ID { get; set; }
 
         public TimeOnly Time_In { get; set; }

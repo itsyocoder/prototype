@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace prototype.Utilities
 {
-    class Btn : RadioButton
+    class Btn : Button
     {
         static Btn()
         {

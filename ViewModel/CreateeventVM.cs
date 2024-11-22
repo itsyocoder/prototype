@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using prototype.Model;
 
 namespace prototype.ViewModel
 {
-    public class CreateeventVM
+    class CreateeventVM : Utilities.ViewModelBase
     {
+        private readonly PageModel _pageModel;
+ 
     }
 }
