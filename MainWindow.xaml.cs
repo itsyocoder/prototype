@@ -9,6 +9,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using prototype.View;
+using prototype.ViewModel;
 
 namespace prototype
 {
@@ -20,6 +22,8 @@ namespace prototype
         public MainWindow()
         {
             InitializeComponent();
+
+            
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -46,9 +50,19 @@ namespace prototype
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void Dashboardbtn(object sender, RoutedEventArgs e)
+        {
+            dashboardnoevent dashboardnoevent = new dashboardnoevent(); 
+
+            MainDisplay.Content = dashboardnoevent;
+        }
+
+        private void Ceeventbtn(object sender, RoutedEventArgs e)
+        {
+            Cevent Cevent = new Cevent();
+
+            MainDisplay.Content = Cevent;
         }
     }
 }

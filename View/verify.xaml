@@ -145,7 +145,9 @@
                          BorderThickness="0,0,0,1"
                          Height="28"
                          VerticalContentAlignment="Center"
+
                          Margin="0,5,0,0" TextChanged="verifyuser_TextChanged">
+
                 </TextBox>
 
                 <Button x:Name="btnverify"
