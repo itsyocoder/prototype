@@ -20,9 +20,30 @@ namespace prototype.View
     /// </summary>
     public partial class Datepicker : UserControl
     {
-        public Datepicker()
+        private ContentControl MainDisplay;
+        public Datepicker(ContentControl mainDisplay)
         {
             InitializeComponent();
+            MainDisplay = mainDisplay;
+        }
+
+        private void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainDisplay == null)
+            {
+                MessageBox.Show("MainDisplay is not initialized.");
+                return;
+            }
+
+            try
+            {
+                MainDisplay.Content = new Cevent(MainDisplay);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
+            }
+            
         }
     }
 }

@@ -160,6 +160,9 @@
                 </ToggleButton.Content>
 
             </ToggleButton>
+            <Grid Grid.Row="3" Grid.Column="3">
+                <Button Content="confirm" Click="Confirm_Click" />
+            </Grid>
         </Grid>
     </Border>
 </UserControl>

@@ -20,9 +20,30 @@ namespace prototype.View
     /// </summary>
     public partial class Choosedept : UserControl
     {
-        public Choosedept()
+        private ContentControl MainDisplay;
+        public Choosedept(ContentControl mainDisplay)
         {
             InitializeComponent();
+            MainDisplay = mainDisplay;
         }
+
+        private void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainDisplay == null)
+            {
+                MessageBox.Show("MainDisplay is not initialized.");
+                return;
+            }
+
+            try
+            {
+                MainDisplay.Content = new Cevent(MainDisplay);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
+            }
+        }
+
     }
 }

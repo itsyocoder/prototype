@@ -38,7 +38,7 @@ namespace prototype.View
 
             try
             {
-                Choosedept choosedept = new Choosedept();
+                Choosedept choosedept = new Choosedept(MainDisplay);
                 MainDisplay.Content = choosedept;
             }
             catch (Exception ex)
@@ -46,7 +46,7 @@ namespace prototype.View
                 MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
             }
         }
-
+        //to be reviewed na feature (not functional as intended)
         private void Nameevent(object sender, RoutedEventArgs e)
         {
             if (MainDisplay == null)
@@ -57,8 +57,27 @@ namespace prototype.View
 
             try
             {
-                Nameofevent nameofevent = new Nameofevent(MainDisplay);
+                Nameofevent nameofevent = new Nameofevent(MainDisplay, nameEventButton: sender as Button);
                 MainDisplay.Content = nameofevent;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
+            }
+        }
+
+        private void Dateandtime_click(object sender, RoutedEventArgs e)
+        {
+            if(MainDisplay == null)
+            {
+                MessageBox.Show("MainDisplay is not initialized.");
+                return;
+            }
+
+            try
+            {
+                Datepicker datepicker = new Datepicker(MainDisplay);
+                MainDisplay.Content = datepicker;
             }
             catch (Exception ex)
             {

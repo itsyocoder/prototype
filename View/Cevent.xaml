@@ -33,7 +33,10 @@
                     BorderThickness="2"
                     Background="Transparent"
                     Margin="0,10,0,10">
-                <Button Content=" Name Of Event" Style="{StaticResource nameevent}" Click="Nameevent"/>
+                <Button x:Name="NameEventButton"
+                        Content=" Name Of Event" 
+                        Style="{StaticResource nameevent}" 
+                        Click="Nameevent"/>
             </Border>
 
             <Border Grid.Row="2"
@@ -42,7 +45,7 @@
                     BorderThickness="2"
                     Background="Transparent"
                     Margin="0,10,0,10">
-                <Button Content="  Date and Time" Style="{StaticResource dtButton}"/>
+                <Button Content="  Date and Time" Style="{StaticResource dtButton}" Click="Dateandtime_click"/>
             </Border>
 
             <Border Grid.Row="3"
