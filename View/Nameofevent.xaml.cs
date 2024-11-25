@@ -20,9 +20,49 @@ namespace prototype.View
     /// </summary>
     public partial class Nameofevent : UserControl
     {
-        public Nameofevent()
+        private ContentControl MainDisplay;
+        public Nameofevent(ContentControl mainDisplay)
         {
             InitializeComponent();
+            MainDisplay = mainDisplay;
         }
+
+        private void Confirm_click(object sender, RoutedEventArgs e)
+        {
+            /*
+            if(MainDisplay == null)
+            {
+                MessageBox.Show("MainDisplay is not initialized.");
+                return;
+            }
+
+            string eventName = EventNameTextBox.Text.Trim();
+
+            if(string.IsNullOrEmpty(eventName) )
+            {
+                MessageBox.Show("Please enter a valid event name.");
+                return;
+            }
+
+            try
+            {
+                Cevent cevent = new Cevent(MainDisplay);
+
+                // Update the TextBlock in Cevent with the event name
+                TextBlock eventLabel = cevent.FindName("EventLabel") as TextBlock;
+                if (eventLabel != null)
+                {
+                    eventLabel.Text = $"Name Of Event: {eventName}";
+                }
+
+                MainDisplay.Content = cevent;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
+            }
+            */
+        }
+
     }
 }

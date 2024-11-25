@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace prototype.View
 {
     /// <summary>
@@ -42,5 +43,7 @@ namespace prototype.View
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        
     }
 }

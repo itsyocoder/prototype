@@ -91,7 +91,7 @@
 
             <Grid Grid.Column="1" Grid.Row="0">
                 <Button x:Name="MinBtn"
-                        Background="white"
+                        Background="Transparent"
                         BorderThickness="0"
                         Foreground="Black"
                         FontSize="20"
@@ -115,7 +115,7 @@
                 </Button>
 
                 <Button x:Name="CloseBtn"
-                        Background="white"
+                        Background="Transparent"
                         BorderThickness="0"
                         Foreground="Black"
                         FontSize="20"

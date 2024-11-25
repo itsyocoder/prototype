@@ -46,5 +46,24 @@ namespace prototype.View
                 MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
             }
         }
+
+        private void Nameevent(object sender, RoutedEventArgs e)
+        {
+            if (MainDisplay == null)
+            {
+                MessageBox.Show("MainDisplay is not initialized.");
+                return;
+            }
+
+            try
+            {
+                Nameofevent nameofevent = new Nameofevent(MainDisplay);
+                MainDisplay.Content = nameofevent;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
+            }
+        }
     }
 }

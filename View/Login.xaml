@@ -122,7 +122,7 @@
                 <TextBlock Text="Password:" Style="{StaticResource normalText}" Margin="25,30,0,0"
                            HorizontalAlignment="Left"/>
 
-                <TextBox x:Name="password"
+                <PasswordBox x:Name="password"
                          FontSize="16"
                          FontFamily="Monsterrat"
                          Margin="25,0,50,0"
