@@ -16,8 +16,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
-        
-<!--fix pa nko mga buttons-->
+
+        <!--fix pa nko mga buttons-->
         <Button x:Name="loginmin"
                 Background="transparent"
                 BorderThickness="0"
@@ -49,10 +49,10 @@
                     </Border>
                 </ControlTemplate>
             </Button.Template>
-            
+
         </Button>
-        
-        
+
+
 
         <Border CornerRadius="10,0,0,10">
             <Border.Background>
@@ -67,7 +67,7 @@
                 <Image Source="/Image/um.png"/>
 
             </StackPanel>
-        </Border> 
+        </Border>
 
         <Border Background="#ffffff" Grid.Column="1" CornerRadius="0,10,10,0">
             <StackPanel>
@@ -117,7 +117,7 @@
                         FontWeight="SemiBold">
 
                     <Button.Style>
-                        <Style TargetType="Button">
+                        <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="#dc3545"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
@@ -127,7 +127,7 @@
                         </Style>
                     </Button.Style>
                     <Button.Template>
-                        <ControlTemplate TargetType="Button">
+                        <ControlTemplate TargetType="{x:Type Button}">
                             <Border Width="90" Height="30"
                                     CornerRadius="3"
                                     Background="{TemplateBinding Background}">

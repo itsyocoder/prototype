@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace prototype.View
 {
     /// <summary>
-    /// Interaction logic for dashboardV.xaml
+    /// Interaction logic for dashboard.xaml
     /// </summary>
-    public partial class dashboardV : UserControl
+    public partial class dashboard : UserControl
     {
-        public dashboardV()
+        public dashboard()
         {
             InitializeComponent();
         }
