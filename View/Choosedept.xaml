@@ -1,0 +1,168 @@
+﻿<UserControl x:Class="prototype.View.Choosedept"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:prototype.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="850"
+             Background="white"
+             Style="{StaticResource Page_Style}">
+
+    <!--para sa image-->
+    <UserControl.Resources>
+        <ImageBrush x:Key="dept1" ImageSource="/Image/bed.png" />
+        <ImageBrush x:Key="dept2" ImageSource="/Image/cae.png" />
+        <ImageBrush x:Key="dept3" ImageSource="/Image/cafae.jpg" />
+        <ImageBrush x:Key="dept4" ImageSource="/Image/case.jpg" />
+        <ImageBrush x:Key="dept5" ImageSource="/Image/cce.jpg" />
+        <ImageBrush x:Key="dept6" ImageSource="/Image/ccje.jpg" />
+        <ImageBrush x:Key="dept7" ImageSource="/Image/cee.jpg" />
+        <ImageBrush x:Key="dept8" ImageSource="/Image/che.jpg" />
+        <ImageBrush x:Key="dept9" ImageSource="/Image/chse.jpg" />
+        <ImageBrush x:Key="dept10" ImageSource="/Image/cte.png" />
+        <ImageBrush x:Key="dept11" ImageSource="/Image/ts.png" />
+        <ImageBrush x:Key="dept12" ImageSource="/Image/ps.png" />
+
+    </UserControl.Resources>
+    
+    <Border Padding="9" BorderBrush="Black" BorderThickness="0">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="204" />
+                <ColumnDefinition Width="205" />
+                <ColumnDefinition Width="200" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="160" />
+                <RowDefinition Height="160" />
+                <RowDefinition Height="160" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <!--Buttons-->
+            <ToggleButton Grid.Column="0" Grid.Row="0" 
+                          BorderThickness="0"
+                          Background="Transparent">
+                <ToggleButton.Content>
+                    <Ellipse Fill="{StaticResource dept1}"
+                             Width="100" Height="100" />
+                </ToggleButton.Content>
+            </ToggleButton>
+
+            <ToggleButton Grid.Column="1" Grid.Row="0"
+                          BorderThickness="0"
+                          Background="Transparent">
+                <ToggleButton.Content>
+                    <Ellipse Fill="{StaticResource dept2}"
+                             Width="100" Height="100"/>
+                </ToggleButton.Content>
+            </ToggleButton>
+
+            <ToggleButton Grid.Column="2" Grid.Row="0"              
+                          BorderThickness="0"
+                          Background="Transparent">
+                <ToggleButton.Content>
+                    <Ellipse Fill="{StaticResource dept3}"
+                             Width="100" Height="100"/>
+                </ToggleButton.Content>
+
+            </ToggleButton>
+
+            <ToggleButton Grid.Column="3" Grid.Row="0"              
+                          BorderThickness="0"
+                          Background="Transparent">
+                <ToggleButton.Content>
+                    <Ellipse Fill="{StaticResource dept4}"
+                             Width="100" Height="100"/>
+                </ToggleButton.Content>
+
+            </ToggleButton>
+
+            <ToggleButton Grid.Column="0" Grid.Row="1"
+                          BorderThickness="0"
+                          Background="Transparent">
+                <ToggleButton.Content>
+                    <Ellipse Fill="{StaticResource dept5}"
+                             Width="100" Height="100"/>
+                </ToggleButton.Content>
+
+            </ToggleButton>
+
+            <ToggleButton Grid.Column="1" Grid.Row="1"
+                          BorderThickness="0"
+                          Background="Transparent">
+                <ToggleButton.Content>
+                    <Ellipse Fill="{StaticResource dept6}"
+                             Width="100" Height="100"/>
+                </ToggleButton.Content>
+
+            </ToggleButton>
+
+            <ToggleButton Grid.Column="2" Grid.Row="1"
+                          BorderThickness="0"
+                          Background="Transparent">
+                <ToggleButton.Content>
+                    <Ellipse Fill="{StaticResource dept7}"
+                             Width="100" Height="100"/>
+                </ToggleButton.Content>
+
+            </ToggleButton>
+
+            <ToggleButton Grid.Column="3" Grid.Row="1"
+                          BorderThickness="0"
+                          Background="Transparent">
+                <ToggleButton.Content>
+                    <Border Width="100" Height="100" CornerRadius="10" 
+                            Background="{StaticResource dept8}" />
+                </ToggleButton.Content>
+
+            </ToggleButton>
+
+            <ToggleButton Grid.Column="0" Grid.Row="2"
+                          BorderThickness="0"
+                          Background="Transparent">
+                <ToggleButton.Content>
+                    <Ellipse Fill="{StaticResource dept9}"
+                             Width="100" Height="100"/>
+                </ToggleButton.Content>
+
+            </ToggleButton>
+
+            <ToggleButton Grid.Column="1" Grid.Row="2"
+                          BorderThickness="0"
+                          Background="Transparent">
+                <ToggleButton.Content>
+                    <Ellipse Fill="{StaticResource dept10}"
+                             Width="100" Height="100"/>
+                </ToggleButton.Content>
+
+            </ToggleButton>
+
+            <ToggleButton Grid.Column="2" Grid.Row="2"
+                          BorderThickness="0"
+                          Background="Transparent">
+                <ToggleButton.Content>
+                    <Ellipse Fill="{StaticResource dept11}"
+                             Width="100" Height="100"/>
+                </ToggleButton.Content>
+
+            </ToggleButton>
+
+            <ToggleButton Grid.Column="3" Grid.Row="2"
+                          BorderThickness="0"
+                          Background="Transparent">
+                <ToggleButton.Content>
+                    <Border Width="100" Height="100" CornerRadius="10" 
+                            Background="{StaticResource dept12}" />
+                </ToggleButton.Content>
+
+            </ToggleButton>
+            <Grid Grid.Row="3" Grid.Column="3">
+                <Button Content="confirm" Click="Confirm_Click" />
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>
