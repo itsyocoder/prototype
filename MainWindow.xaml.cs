@@ -19,6 +19,7 @@ namespace prototype
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<string> EventList { get; set; } = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
@@ -67,8 +68,8 @@ namespace prototype
             }
 
             //display na part
-            dashboardnoevent dashboardnoevent = new dashboardnoevent();
-            MainDisplay.Content = dashboardnoevent;
+            dashboard dashboard = new dashboard();
+            MainDisplay.Content = dashboard;
         }
 
         private void Ceeventbtn(object sender, RoutedEventArgs e)
@@ -91,7 +92,7 @@ namespace prototype
             MainDisplay.Content = Cevent;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Event_Click(object sender, RoutedEventArgs e)
         {
             foreach (UIElement element in MenuContainer.Children)
             {
@@ -105,6 +106,31 @@ namespace prototype
             if (clickedButton != null)
             {
                 clickedButton.Tag = true;
+            }
+
+            if (MainDisplay != null)
+            {
+                Event eventView = new Event();
+
+                if(Application.Current.MainWindow is MainWindow mainWindow)
+                {
+                    foreach(string eventDetails in mainWindow.EventList)
+                    {
+                        Button eventButton = new Button
+                        {
+                            Content = eventDetails,
+                            Width = 100,
+                            Height = 100,
+                            Background = Brushes.LightBlue
+                        };
+
+                        if (eventView.FindName("ButtonContainer") is Panel container)
+                        {
+                            container.Children.Add(eventButton);
+                        }
+                    }
+                }
+                MainDisplay.Content = eventView;
             }
         }
 

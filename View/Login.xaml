@@ -75,7 +75,7 @@
 
                         <Button x:Name="CloseButton"
                                 Grid.Column="2"
-                                Background="white"
+                                Background="Transparent"
                                 BorderThickness="0"
                                 Foreground="Black"
                                 FontSize="20"
@@ -149,10 +149,16 @@
 
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
-                            <Setter Property="Background" Value="#dc3545"/>
+                            <Setter Property="Background" Value="#b02a24"/>
+                            <Setter Property="Foreground" Value="white"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="FontSize" Value="13"/>
+                            <Setter Property="FontFamily" Value="Montserrat"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="Foreground" Value="#e19238"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>

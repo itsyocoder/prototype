@@ -24,5 +24,25 @@ namespace prototype.View
         {
             InitializeComponent();
         }
+
+        public void AddButton()
+        {
+            Button newbutton = new Button
+            {
+                Width = 100,
+                Height = 100,
+                Content = "newbutton",
+                Background = Brushes.Black,
+            };
+
+            if (this.FindName("ButtonContainer") is Panel container)
+            {
+                container.Children.Add(newbutton);
+            }
+            else
+            {
+                MessageBox.Show("ButtonContainer not found.");
+            }
+        }
     }
 }

@@ -5,8 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:prototype.View"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="850">
+             d:DesignHeight="550" d:DesignWidth="850"
+             Background="#f1f5f9"
+             Style="{StaticResource Page_Style}">
     <Grid>
+        <StackPanel x:Name="ButtonContainer" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Orientation="Vertical"
+                    Background="#ffffff"
+                    Width="500" 
+                    Height="300">
             
+            <TextBlock Text="Button Container" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       Margin="10"
+                       FontSize="16" 
+                       Foreground="Gray" />
+        </StackPanel>
     </Grid>
 </UserControl>

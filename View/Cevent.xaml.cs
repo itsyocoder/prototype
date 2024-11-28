@@ -21,7 +21,7 @@ namespace prototype.View
     public partial class Cevent : UserControl
     {
         //para mu display ang another user control view
-        public ContentControl MainDisplay {  get; set; }
+        public ContentControl MainDisplay { get; set; }
         public Cevent(ContentControl mainDisplay)
         {
             InitializeComponent();
@@ -46,62 +46,83 @@ namespace prototype.View
                 MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
             }
         }
-        /*
-private void incdept_click(object sender, RoutedEventArgs e)
-{
-   if (MainDisplay == null)
-   {
-       MessageBox.Show("MainDisplay is not initialized.");
-       return;
-   }
 
-   try
-   {
-       Choosedept choosedept = new Choosedept(MainDisplay);
-       MainDisplay.Content = choosedept;
-   }
-   catch (Exception ex)
-   {
-       MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
-   }
-}
-//to be reviewed na feature (not functional as intended)
-private void Nameevent(object sender, RoutedEventArgs e)
-{
-   if (MainDisplay == null)
-   {
-       MessageBox.Show("MainDisplay is not initialized.");
-       return;
-   }
+        private void Cevent_confirm(object sender, RoutedEventArgs e)
+        {
+            if (MainDisplay == null)
+            {
+                MessageBox.Show("MainDisplay is not initialized.");
+                return;
+            }
+            //test
+            string eventName = "Sample Event"; 
+            string eventDate = "01/01/2025";   
+            string eventDetails = $"{eventName} - {eventDate}";
 
-   try
-   {
-       Nameofevent nameofevent = new Nameofevent(MainDisplay, nameEventButton: sender as Button);
-       MainDisplay.Content = nameofevent;
-   }
-   catch (Exception ex)
-   {
-       MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
-   }
-}
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                mainWindow.EventList.Add(eventDetails);
+            }
 
-private void Dateandtime_click(object sender, RoutedEventArgs e)
-{
-   if(MainDisplay == null)
-   {
-       MessageBox.Show("MainDisplay is not initialized.");
-       return;
-   }
+            MessageBox.Show("Event confirmed! You can view it in the Event tab.");
 
-   try
-   {
-       Datepicker datepicker = new Datepicker(MainDisplay);
-       MainDisplay.Content = datepicker;
-   }
-   catch (Exception ex)
-   {
-       MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
-   }
-}*/
+            /*
+    private void incdept_click(object sender, RoutedEventArgs e)
+    {
+    if (MainDisplay == null)
+    {
+    MessageBox.Show("MainDisplay is not initialized.");
+    return;
+    }
+
+    try
+    {
+    Choosedept choosedept = new Choosedept(MainDisplay);
+    MainDisplay.Content = choosedept;
+    }
+    catch (Exception ex)
+    {
+    MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
+    }
+    }
+    //to be reviewed na feature (not functional as intended)
+    private void Nameevent(object sender, RoutedEventArgs e)
+    {
+    if (MainDisplay == null)
+    {
+    MessageBox.Show("MainDisplay is not initialized.");
+    return;
+    }
+
+    try
+    {
+    Nameofevent nameofevent = new Nameofevent(MainDisplay, nameEventButton: sender as Button);
+    MainDisplay.Content = nameofevent;
+    }
+    catch (Exception ex)
+    {
+    MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
+    }
+    }
+
+    private void Dateandtime_click(object sender, RoutedEventArgs e)
+    {
+    if(MainDisplay == null)
+    {
+    MessageBox.Show("MainDisplay is not initialized.");
+    return;
+    }
+
+    try
+    {
+    Datepicker datepicker = new Datepicker(MainDisplay);
+    MainDisplay.Content = datepicker;
+    }
+    catch (Exception ex)
+    {
+    MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
+    }
+    }*/
+        }
     }
 }
