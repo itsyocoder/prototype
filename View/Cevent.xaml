@@ -5,13 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:prototype.View"
              mc:Ignorable="d" 
-             d:DesignHeight="650" d:DesignWidth="850"
+             d:DesignHeight="550" d:DesignWidth="850"
              Style="{StaticResource Page_Style}"
              Background="White">
 
     <Border BorderBrush="Black" BorderThickness="0"
-            CornerRadius="3" Padding="10" Background="White">
-        <Grid Margin="0">
+            CornerRadius="2" Padding="10" Background="White">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.5"/>
+        </Border.Effect>
+        <Grid Margin="0,0,0,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -19,36 +22,102 @@
 
             <!--Title-->
             <TextBlock Grid.Row="0" Text="Create Event"
-                       FontSize="35" FontWeight="Bold"
-                       VerticalAlignment="Top"
-                       HorizontalAlignment="Left" Margin="0,0,0,20"/>
-            <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Background="Transparent" Margin="0,10,0,10" Grid.Row="1">
+                       FontSize="24" FontWeight="SemiBold"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left" Margin="0,0,0,20"
+                       FontStyle="Italic" FontFamily="Arial" Foreground="#333333"/>
+            <Border CornerRadius="10" BorderBrush="#6c757d" BorderThickness="2" Background="Transparent" Margin="73,63,73,76" Grid.Row="1">
                 <StackPanel Margin="10">
                     <TextBlock Text="Name of Event:" FontWeight="Bold" FontSize="20" Margin="0,0,0,10" />
-                    <TextBox x:Name="EventNameTextBox" Width="500" Height="30" Margin="0,0,0,10" BorderThickness="0,0,0,2" />
+                    <TextBox x:Name="EventNameTextBox" Width="500" Height="30" Margin="0,0,0,10">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TextBox">
+                                            <Border Background="White"
+                                BorderBrush="Gray"
+                                BorderThickness="1"
+                                CornerRadius="10"
+                                Padding="5">
+                                                <ScrollViewer x:Name="PART_ContentHost" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
 
                     <TextBlock Text="Date and Time:" FontWeight="Bold" FontSize="20" Margin="0,10,0,5" />
-                    <TextBlock Text="Start Date" FontSize="16" Margin="0,10,0,5" />
-                    <DatePicker x:Name="StartDatePicker" Margin="0,0,0,5" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="355" />
+                            <ColumnDefinition Width="425" />
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="End Date" FontSize="16" Margin="0,10,0,5" />
-                    <DatePicker x:Name="EndDatePicker" Margin="0,0,0,5" />
+                        <StackPanel>
+                            <TextBlock Text="Start Date" FontSize="16" Margin="100,10,0,15" Grid.Column="0"/>
+                            <DatePicker x:Name="StartDatePicker" Margin="100,0,0,5" Width="144" 
+                                        HorizontalAlignment="Left" FontFamily="Arial"/>
 
-                    <TextBlock Text="Start Time" FontSize="16" Margin="0,10,0,5" />
-                    <ComboBox x:Name="StartTimeComboBox">
-                        <ComboBoxItem Content="08:00" />
-                        <ComboBoxItem Content="12:30" />
-                        <ComboBoxItem Content="15:45" />
-                    </ComboBox>
+                            <TextBlock Text="End Date" FontSize="16" Margin="100,10,0,15" />
+                            <DatePicker x:Name="EndDatePicker" Margin="100,0,0,5" Width="144"
+                                        HorizontalAlignment="Left" FontFamily="Arial"/>
 
-                    <TextBlock Text="End Time" FontSize="16" Margin="0,10,0,5" />
-                    <ComboBox x:Name="EndTimeComboBox">
-                        <ComboBoxItem Content="08:00" />
-                        <ComboBoxItem Content="12:30" />
-                        <ComboBoxItem Content="15:45" />
-                    </ComboBox>
+                        </StackPanel>
 
-                    <Button Content="Choose Department" Width="150" Height="20" Margin="0,20,0,0" Click="choosedept"/>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="Start Time" FontSize="16" Margin="20,10,0,15" Grid.Column="1"/>
+                            <ComboBox x:Name="StartTimeComboBox" Width="144"
+                                      HorizontalAlignment="Left" Margin="20,0,0,0">
+                                <ComboBoxItem Content="08:00" />
+                                <ComboBoxItem Content="12:30" />
+                                <ComboBoxItem Content="15:45" />
+                            </ComboBox>
+
+                            <TextBlock Text="End Time" FontSize="16" Margin="20,10,0,15" Grid.Column="1" Width="428"/>
+                            <ComboBox x:Name="EndTimeComboBox" Width="144"
+                                      HorizontalAlignment="Left" Margin="20,0,0,0" >
+                                <ComboBoxItem Content="08:00" />
+                                <ComboBoxItem Content="12:30" />
+                                <ComboBoxItem Content="15:45" />
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid>
+                        <Button Content="Choose Department" Width="150" Height="40" Margin="0,20,0,0" Click="choosedept_btn">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" Padding="10">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Background" Value="#b02a24"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                    <Setter Property="FontFamily" Value="Montserrat"/>
+                                    <Setter Property="FontWeight" Value="SemiBold"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Margin" Value="10"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#e19238"/>
+                                            <Setter Property="Foreground" Value="#ffffff"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </Grid>
+
                 </StackPanel>
             </Border>
         </Grid>

@@ -1,17 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.Data.SqlClient;
 
 namespace prototype.View
@@ -20,14 +10,15 @@ namespace prototype.View
     {
         // SQL Server connection string
         private readonly string connectionString = @"Server=MSI\SQLEXPRESS01; Database=LoginDB; Integrated Security=True; Encrypt=True; TrustServerCertificate=True";
+        public ContentControl MainDisplay { get; set; }
 
-        public Cevent()
+        public Cevent(ContentControl mainDisplay)
         {
             InitializeComponent();
-            
+            MainDisplay = mainDisplay;
         }
 
-        private void choosedept(object sender, RoutedEventArgs e)
+        private void choosedept_btn(object sender, RoutedEventArgs e)
         {
             // Collect data from the form
             string eventName = EventNameTextBox.Text; // Get event name directly
@@ -56,30 +47,38 @@ namespace prototype.View
                 { "EndTime", endTime }
             };
 
-            // Call method to save data to the database
-            bool isSaved = SaveEventToDatabase(eventDetails);
+            // Save event to the database and get the EventID
+            int eventID = SaveEventToDatabase(eventDetails);
 
-            // Navigate to Choosedept view if data is saved successfully
-            if (isSaved)
+            if (eventID != -1)
             {
-                if (Application.Current.MainWindow is MainWindow mainWindow)
+                if (MainDisplay == null)
                 {
-                    mainWindow.MainDisplay.Content = new Choosedept();
+                    MessageBox.Show("MainDisplay is not initialized.");
+                    return;
+                }
+
+                try
+                {
+                    Choosedept choosedept_btn = new Choosedept(MainDisplay, eventID); // Pass eventID to Choosedept
+                    MainDisplay.Content = choosedept_btn;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}\n\n{ex.StackTrace}");
                 }
             }
         }
 
-
-        private bool SaveEventToDatabase(Dictionary<string, object> eventDetails)
+        private int SaveEventToDatabase(Dictionary<string, object> eventDetails)
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "INSERT INTO Events (EventName, StartDate, EndDate, StartTime, EndTime) VALUES (@EventName, @StartDate, @EndDate, @StartTime, @EndTime)";
+                    string query = "INSERT INTO Events (EventName, StartDate, EndDate, StartTime, EndTime) OUTPUT INSERTED.EventID VALUES (@EventName, @StartDate, @EndDate, @StartTime, @EndTime)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        // Use proper parameterized queries to match SQL Server types
                         command.Parameters.AddWithValue("@EventName", eventDetails["EventName"]);
                         command.Parameters.AddWithValue("@StartDate", eventDetails["StartDate"]);
                         command.Parameters.AddWithValue("@EndDate", eventDetails["EndDate"]);
@@ -87,27 +86,15 @@ namespace prototype.View
                         command.Parameters.AddWithValue("@EndTime", eventDetails["EndTime"]);
 
                         connection.Open();
-                        command.ExecuteNonQuery();
+                        return (int)command.ExecuteScalar(); // Get the EventID of the newly inserted row
                     }
                 }
-
-                MessageBox.Show("Event successfully saved.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                return true;
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Invalid date or time format. Please check your input.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return -1; // Return a default value indicating failure
             }
-
-            return false;
         }
-//
-
-        //www
     }
-
 }

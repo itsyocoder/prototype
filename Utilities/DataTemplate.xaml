@@ -7,17 +7,11 @@
         <view:dashboard />
     </DataTemplate>
     
-    <DataTemplate DataType="{x:Type vm:CreateeventVM}">
-        <view:Cevent />
-    </DataTemplate>
+ 
     
-    <DataTemplate DataType="{x:Type vm:EventsVM}">
-        <view:Event />
-    </DataTemplate>
+
     
-    <DataTemplate DataType="{x:Type vm:AnalyticsVM}">
-        <view:Analytics />
-    </DataTemplate>
+  
     
     
 

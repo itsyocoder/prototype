@@ -1,53 +1,51 @@
 ﻿using System.Collections.Generic;
-using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Data.SqlClient;
 
 namespace prototype.View
 {
-    public partial class Event : UserControl
+    public partial class Displaydept : UserControl
     {
         private readonly string connectionString = @"Server=MSI\SQLEXPRESS01; Database=LoginDB; Integrated Security=True;TrustServerCertificate=True;";
         public ContentControl MainDisplay { get; set; }
+        private int EventID { get; set; }
 
-        public Event(ContentControl mainDisplay)
+        public Displaydept(ContentControl mainDisplay, int eventID)
         {
             InitializeComponent();
             MainDisplay = mainDisplay;
-            LoadEvents();
+            EventID = eventID;
+
+            LoadDepartments();
         }
 
-        private void LoadEvents()
+        private void LoadDepartments()
         {
-            List<EventModel> events = new List<EventModel>();
+            List<DepartmentModel> departments = new List<DepartmentModel>();
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "SELECT EventID, EventName, StartDate, EndDate, StartTime, EndTime FROM Events";
+                    string query = "SELECT DepartmentName FROM SelectedDepartments WHERE EventID = @EventID";
                     SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@EventID", EventID);
                     connection.Open();
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            events.Add(new EventModel
+                            departments.Add(new DepartmentModel
                             {
-                                EventID = reader.GetInt32(0),
-                                EventName = reader.GetString(1),
-                                StartDate = reader.GetDateTime(2),
-                                EndDate = reader.GetDateTime(3),
-                                StartTime = reader.GetTimeSpan(4),
-                                EndTime = reader.GetTimeSpan(5)
+                                DepartmentName = reader.GetString(0)
                             });
                         }
                     }
                 }
 
-                EventDataGrid.ItemsSource = events;
+                DepartmentListView.ItemsSource = departments;
             }
             catch (SqlException ex)
             {
@@ -55,27 +53,22 @@ namespace prototype.View
             }
         }
 
-        private void ViewDepartments_Click(object sender, RoutedEventArgs e)
+        private void ViewDetails_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
             if (button == null || button.Tag == null) return;
 
-            int eventID = (int)button.Tag;
+            string departmentName = button.Tag.ToString();
 
             if (MainDisplay != null)
             {
-                MainDisplay.Content = new Displaydept(MainDisplay, eventID);
+                MainDisplay.Content = new list(MainDisplay, departmentName, EventID);
             }
         }
     }
 
-    public class EventModel
+    public class DepartmentModel
     {
-        public int EventID { get; set; }
-        public string EventName { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
+        public string DepartmentName { get; set; }
     }
 }

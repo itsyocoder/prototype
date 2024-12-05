@@ -28,6 +28,9 @@
                         Background="white"
                         Padding="10"
                         Margin="10">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.5"/>
+                    </Border.Effect>
                     <TextBlock Text="NUMBER OF EVENT(S):"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Left"
@@ -45,6 +48,9 @@
                         Background="white"
                         Padding="10"
                         Margin="10">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.5"/>
+                    </Border.Effect>
                     <TextBlock Text="NUMBER OF STUDENT(S):"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Left"
@@ -61,6 +67,9 @@
                         Background="white"
                         Padding="10"
                         Margin="10">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.5"/>
+                    </Border.Effect>
                     <TextBlock Text="INCLUDED DEPARTMENT(S):"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Left"

@@ -27,6 +27,9 @@
     </UserControl.Resources>
     
     <Border Padding="9" BorderBrush="Black" BorderThickness="0">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.5"/>
+        </Border.Effect>
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -45,7 +48,7 @@
             <!--Buttons-->
             <ToggleButton Grid.Column="0" Grid.Row="0" 
                           BorderThickness="0"
-                          Background="Transparent">
+                          Background="Transparent" Checked="BED">
                 <ToggleButton.Content>
                     <Ellipse Fill="{StaticResource dept1}"
                              Width="100" Height="100" />
@@ -54,7 +57,7 @@
 
             <ToggleButton Grid.Column="1" Grid.Row="0"
                           BorderThickness="0"
-                          Background="Transparent">
+                          Background="Transparent" Checked="CAE">
                 <ToggleButton.Content>
                     <Ellipse Fill="{StaticResource dept2}"
                              Width="100" Height="100"/>
@@ -63,7 +66,7 @@
 
             <ToggleButton Grid.Column="2" Grid.Row="0"              
                           BorderThickness="0"
-                          Background="Transparent">
+                          Background="Transparent" Checked="CAFAE">
                 <ToggleButton.Content>
                     <Ellipse Fill="{StaticResource dept3}"
                              Width="100" Height="100"/>
@@ -73,7 +76,7 @@
 
             <ToggleButton Grid.Column="3" Grid.Row="0"              
                           BorderThickness="0"
-                          Background="Transparent">
+                          Background="Transparent" Checked="CASE">
                 <ToggleButton.Content>
                     <Ellipse Fill="{StaticResource dept4}"
                              Width="100" Height="100"/>
@@ -83,7 +86,7 @@
 
             <ToggleButton Grid.Column="0" Grid.Row="1"
                           BorderThickness="0"
-                          Background="Transparent">
+                          Background="Transparent" Checked="CCE">
                 <ToggleButton.Content>
                     <Ellipse Fill="{StaticResource dept5}"
                              Width="100" Height="100"/>
@@ -93,7 +96,7 @@
 
             <ToggleButton Grid.Column="1" Grid.Row="1"
                           BorderThickness="0"
-                          Background="Transparent">
+                          Background="Transparent" Checked="CCJE"> 
                 <ToggleButton.Content>
                     <Ellipse Fill="{StaticResource dept6}"
                              Width="100" Height="100"/>
@@ -103,7 +106,7 @@
 
             <ToggleButton Grid.Column="2" Grid.Row="1"
                           BorderThickness="0"
-                          Background="Transparent">
+                          Background="Transparent" Checked="CEE">
                 <ToggleButton.Content>
                     <Ellipse Fill="{StaticResource dept7}"
                              Width="100" Height="100"/>
@@ -113,7 +116,7 @@
 
             <ToggleButton Grid.Column="3" Grid.Row="1"
                           BorderThickness="0"
-                          Background="Transparent">
+                          Background="Transparent" Checked="CHSE">
                 <ToggleButton.Content>
                     <Border Width="100" Height="100" CornerRadius="10" 
                             Background="{StaticResource dept8}" />
@@ -123,7 +126,7 @@
 
             <ToggleButton Grid.Column="0" Grid.Row="2"
                           BorderThickness="0"
-                          Background="Transparent">
+                          Background="Transparent" Checked="CHE">
                 <ToggleButton.Content>
                     <Ellipse Fill="{StaticResource dept9}"
                              Width="100" Height="100"/>
@@ -133,7 +136,7 @@
 
             <ToggleButton Grid.Column="1" Grid.Row="2"
                           BorderThickness="0"
-                          Background="Transparent">
+                          Background="Transparent" Checked="CTE">
                 <ToggleButton.Content>
                     <Ellipse Fill="{StaticResource dept10}"
                              Width="100" Height="100"/>
@@ -143,7 +146,7 @@
 
             <ToggleButton Grid.Column="2" Grid.Row="2"
                           BorderThickness="0"
-                          Background="Transparent">
+                          Background="Transparent" Checked="TS">
                 <ToggleButton.Content>
                     <Ellipse Fill="{StaticResource dept11}"
                              Width="100" Height="100"/>
@@ -153,15 +156,79 @@
 
             <ToggleButton Grid.Column="3" Grid.Row="2"
                           BorderThickness="0"
-                          Background="Transparent">
+                          Background="Transparent" Checked="PS">
                 <ToggleButton.Content>
                     <Border Width="100" Height="100" CornerRadius="10" 
                             Background="{StaticResource dept12}" />
                 </ToggleButton.Content>
 
             </ToggleButton>
-            <Grid Grid.Row="3" Grid.Column="3">
-                <Button Content="confirm" Click="Confirm_Click" />
+            <Grid Grid.Row="3" Grid.Column="3" Margin="0,0,-23,0">
+                <Button Content="Confirm" Click="Confirmed_Button"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center" Width="136" Height="50">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" Padding="10">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Background" Value="#b02a24"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="13"/>
+                            <Setter Property="FontFamily" Value="Montserrat"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Margin" Value="10"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="0" Margin="0,0,8,0">
+                <Button Content="Back" Click="Back_Button"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center" Width="136" Height="50">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" Padding="10">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Background" Value="#b02a24"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="13"/>
+                            <Setter Property="FontFamily" Value="Montserrat"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Margin" Value="10"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </Grid>
         </Grid>
     </Border>

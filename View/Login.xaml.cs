@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Microsoft.Data.SqlClient;
 
 namespace prototype.View
@@ -9,8 +10,6 @@ namespace prototype.View
     {
         // SQL Server connection string (update with your server details)
         private readonly string connectionString = @"Server=MSI\SQLEXPRESS01; Database=LoginDB; Integrated Security=True; Encrypt=True; TrustServerCertificate=True";
-
-
         public Login()
         {
             InitializeComponent();
@@ -84,7 +83,16 @@ namespace prototype.View
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.Shutdown();
+        }
 
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                // Explicitly call the loginmin_Click method
+                loginmin_Click(loginmin_Click, new RoutedEventArgs());
+            }   
         }
     }
 }

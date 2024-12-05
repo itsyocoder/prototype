@@ -20,6 +20,7 @@
     <None Remove="Image\chse.jpg" />
     <None Remove="Image\cte.png" />
     <None Remove="Image\lock.png" />
+    <None Remove="Image\newlogo.png" />
     <None Remove="Image\ps.png" />
     <None Remove="Image\ts.png" />
     <None Remove="Image\um.png" />
@@ -71,6 +72,7 @@
     <Resource Include="Image\lock.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Image\newlogo.png" />
     <Resource Include="Image\ps.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

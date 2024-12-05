@@ -28,9 +28,9 @@
                             <!-- adjust lng margin if i move ang logo sheesh-->
                             <Border Width="150" Height="100" Padding="3" Background="#b20a07" 
                                 DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20 29 0 0">
-                                <Image Source="/Image/newlogo.png" Stretch="UniformToFill"/>
+                                <Image Source="Image/newlogo.png" Stretch="UniformToFill" Margin="0,1,0,-1"/>
                             </Border>
-                            
+
                             <!--Title-->
                             <TextBlock Foreground="#f5cf28" FontSize="19" FontWeight="SemiBold"
                                        DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 1"
@@ -42,11 +42,11 @@
 
                             <!--Menu Separator-->
                             <Separator Margin="5" DockPanel.Dock="Top" Height="0.8" Background="#be180d" />
-                            
+
 
                             <!--MenuButtons-->
                             <StackPanel DockPanel.Dock="Top" x:Name="MenuContainer">
-                                <Button Style="{StaticResource menuButton}">
+                                <Button Style="{StaticResource menuButton}" Click="Homebtn">
                                     <StackPanel Orientation="Horizontal" RenderTransformOrigin="0.5,0.5">
                                         <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
                                         <TextBlock Text="Home"/>
@@ -74,12 +74,12 @@
                                         <TextBlock Text="Events"/>
                                     </StackPanel>
                                 </Button>
-                                
-                                
+
+
 
 
                             </StackPanel>
-                            <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 20 15">
+                            <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 20 15" Click="logout_btn">
                                 <StackPanel Orientation="Horizontal" RenderTransformOrigin="0.5,0.5">
                                     <Icon:PackIconMaterial Kind="LogoutVariant" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Logout"/>
@@ -142,7 +142,11 @@
             </Grid>
 
             <!--mainsection-->
-            <Grid Grid.Column="1" Margin="20 60 20 10">
+            <Grid Grid.Column="1" Margin="10 60 20 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="831*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
@@ -150,10 +154,12 @@
                 <!--butang ra search bar dri if need i implement-->
 
 
-                <ContentControl x:Name="MainDisplay" Grid.RowSpan="2"/>
+                <ContentControl x:Name="MainDisplay" Grid.ColumnSpan="2"/>
             </Grid>
 
         </Grid>
     </Border>
 
 </Window>
+
+    
