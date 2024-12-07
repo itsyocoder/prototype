@@ -40,8 +40,9 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
+                <!--keep lng left margin to 40 kay dli siya uniform pag run sa code-->
                 <TextBlock Grid.Column="0"
-                           Margin="20 10 0 0" FontSize="18" FontFamily="Roboto"
+                           Margin="40 10 0 0" FontSize="18" FontFamily="Roboto"
                            TextWrapping="Wrap">
                     <Run Text="Eco-friendly:" Foreground="#f98800" FontWeight="SemiBold"/>
                     <Run Text="Save paper by eliminating index cards." />

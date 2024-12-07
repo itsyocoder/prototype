@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="View\SplashScreen.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Image\bed.png" />
     <None Remove="Image\cae.png" />
     <None Remove="Image\cafae.jpg" />
@@ -20,7 +24,9 @@
     <None Remove="Image\chse.jpg" />
     <None Remove="Image\cte.png" />
     <None Remove="Image\lock.png" />
+    <None Remove="Image\newlogo.png" />
     <None Remove="Image\ps.png" />
+    <None Remove="Image\splash.png" />
     <None Remove="Image\ts.png" />
     <None Remove="Image\um.png" />
   </ItemGroup>
@@ -30,6 +36,7 @@
     <PackageReference Include="ActiproSoftware.Controls.WPF.Shared" Version="24.1.3" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.1" />
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="5.1.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
     <PackageReference Include="Syncfusion.Licensing" Version="27.2.3" />
     <PackageReference Include="Syncfusion.SfChart.WPF" Version="27.2.3" />
@@ -71,7 +78,11 @@
     <Resource Include="Image\lock.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Image\newlogo.png" />
     <Resource Include="Image\ps.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\splash.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\ts.png">

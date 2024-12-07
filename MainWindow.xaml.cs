@@ -24,8 +24,7 @@ namespace prototype
         public MainWindow()
         {
             InitializeComponent();
-         
-
+            LoadHomeView();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -92,7 +91,7 @@ namespace prototype
             }
 
             // Create an instance of Cevent and display it in MainDisplay
-            Cevent cevent = new Cevent();
+            Cevent cevent = new Cevent(MainDisplay);
             MainDisplay.Content = cevent;
         }
 
@@ -114,11 +113,12 @@ namespace prototype
 
             if (MainDisplay != null)
             {
-                Event eventView = new Event();
+                // Pass the MainDisplay control to the Event class
+                Event eventView = new Event(MainDisplay);
 
-                if(Application.Current.MainWindow is MainWindow mainWindow)
+                if (Application.Current.MainWindow is MainWindow mainWindow)
                 {
-                    foreach(string eventDetails in mainWindow.EventList)
+                    foreach (string eventDetails in mainWindow.EventList)
                     {
                         Button eventButton = new Button
                         {
@@ -138,6 +138,7 @@ namespace prototype
             }
         }
 
+
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -146,6 +147,44 @@ namespace prototype
         private void Min_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void Homebtn(object sender, RoutedEventArgs e)
+        {
+            // Highlight the Home button
+            foreach (UIElement element in MenuContainer.Children)
+            {
+                if (element is Button button)
+                {
+                    button.Tag = false;
+                }
+            }
+
+            Button clickedButton = sender as Button;
+            if (clickedButton != null)
+            {
+                clickedButton.Tag = true;
+            }
+
+            // Load the Home view
+            LoadHomeView();
+        }
+
+        private void LoadHomeView()
+        {
+            // Create an instance of the Home view and display it
+            Home homeView = new Home(); // Assuming HomeView is the name of your home content view
+            MainDisplay.Content = homeView;
+        }
+
+        private void logout_btn(object sender, RoutedEventArgs e)
+        {
+            // Create and show the Login window
+            Login loginWindow = new Login();
+            loginWindow.Show();
+
+            // Close the current MainWindow instance
+            this.Close();
         }
     }
    

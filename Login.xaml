@@ -7,11 +7,14 @@
         xmlns:local="clr-namespace:prototype.View"
         mc:Ignorable="d"
         Title="Login" Height="500" Width="800"
+        KeyDown="Window_KeyDown"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen">
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -101,39 +104,27 @@
                     </Grid>
 
                 </Grid>
-                <TextBlock Text="Username:" Style="{StaticResource normalText}" Margin="25,140,0,0"
+                <TextBlock Text="Username:" Style="{StaticResource normalText}" Margin="25,120,0,0"
                        HorizontalAlignment="Left"/>
 
 
-                <TextBox x:Name="username"
-                         FontSize="16"
-                         FontFamily="Montserrat"
-                         Margin="25,0,50,0"
-                         BorderThickness="2,2,2,2"
-                         Background="Transparent"   
-                         Foreground="black"
-                         CaretBrush="Black"
-                         BorderBrush="#f5d219"
-                         Height="40"
-                         VerticalContentAlignment="Center"
-                         Padding="10" TextChanged="username_TextChanged_1"/>
+                <Border CornerRadius="10" BorderBrush="#f5d219" BorderThickness="2" Background="Transparent" 
+                        Margin="25,0,50,0">
+                    <TextBox x:Name="username" HorizontalAlignment="Left"
+                             VerticalContentAlignment="Center" Height="40" Width="403" BorderThickness="0" Background="Transparent"
+                             TextChanged="username_TextChanged_1" FontSize="18"/>
+                </Border>
 
 
                 <TextBlock Text="Password:" Style="{StaticResource normalText}" Margin="25,30,0,0"
                            HorizontalAlignment="Left"/>
 
-                <PasswordBox x:Name="password"
-                         FontSize="16"
-                         FontFamily="Monsterrat"
-                         Margin="25,0,50,0"
-                         BorderThickness="2,2,2,2"
-                         Background="Transparent"
-                         Foreground="Black"
-                         CaretBrush="Black"
-                         BorderBrush="#f5d219"
-                         Height="40"
-                         VerticalContentAlignment="Center"
-                         Padding="10"/>
+                <Border CornerRadius="10" BorderBrush="#f5d219" BorderThickness="2" Background="Transparent" 
+                        Margin="25,0,50,0">
+                    <PasswordBox x:Name="password" FontSize="16" FontFamily="Monsterrat" Background="Transparent" 
+                                 Foreground="Black" CaretBrush="Black" Height="40" 
+                                 VerticalContentAlignment="Center" Padding="10" BorderThickness="0"/>
+                </Border>
 
                 <Button x:Name="login"
                         Background="#b02a24"
